@@ -1,5 +1,4 @@
-## Bases-Tarea-3
-
+### Tarea 3: Normalización en Python
 # Método is_trivial para la clase FunctionalDependency:
 
   El método implementado:
