@@ -78,8 +78,15 @@ class FunctionalDependency(Dependency):
     _SEPARATOR = "->"
 
     def is_trivial(self) -> bool:
-        # TODO: Actividad 1
-        raise NotImplementedError()
+        """
+        Determines if the functional dependency is trivial.
+        A functional dependency X -> Y is trivial if Y ⊆ X (Y is a subset of X).
+
+       
+        Returns:
+            bool: True if the dependency is trivial, False otherwise.
+        """
+        return self.dependant.issubset(self.determinant)
 
 
 class MultivaluedDependency(Dependency):
@@ -88,8 +95,23 @@ class MultivaluedDependency(Dependency):
     _SEPARATOR = "->->"
 
     def is_trivial(self, heading: set[Attribute]) -> bool:
-        # TODO: Actividad 2
-        raise NotImplementedError()
+        """
+        Determines if the multivalued dependency is trivial.
+        A multivalued dependency X ->-> Y is trivial if either:
+        1. Y ⊆ X (Y is a subset of X), or
+        2. Y contains all remaining attributes not in X (Y = R - X, where R is the heading)
+
+
+        Returns:
+            bool: True if the dependency is trivial, False otherwise.
+        """
+        # Case 1: Y is a subset of X
+        if self.dependant.issubset(self.determinant):
+            return True
+            
+        # Case 2: X ∪ Y = R (heading)
+        remaining_attributes = heading - self.determinant
+        return self.dependant == remaining_attributes
 
 
 class Relvar:
@@ -145,3 +167,5 @@ class Relvar:
                 """
         self._validate_dependency(multivalued_dependency)
         self.multivalued_dependencies.add(multivalued_dependency)
+
+
