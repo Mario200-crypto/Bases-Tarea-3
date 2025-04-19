@@ -1,6 +1,6 @@
-# Bases-Tarea-3
+## Bases-Tarea-3
 
- Método is_trivial para la clase FunctionalDependency:
+# Método is_trivial para la clase FunctionalDependency:
 
   El método implementado:
    - Usa issubset() que es un método de Python para conjuntos que verifica si un conjunto es subconjunto de otro
@@ -19,7 +19,7 @@
   - Caso 3: {A,B}->{C} - No trivial porque C no está en {A,B}
   - Caso 4: {A}->{} - Trivial con dependiente vacío
 
- Método is_trivial para la clase MultivaluedDependency:
+# Método is_trivial para la clase MultivaluedDependency:
 
    El método implementado:
     - Recibe como parámetro el heading que es el conjunto completo de atributos de la relación
@@ -42,12 +42,12 @@
   - Caso 4: {A,B,C,D}->->{} - Trivial con dependiente vacío
 
 
-closure – calcula y regresa el cierre:
+# closure – calcula y regresa el cierre:
 
-is_superkey:
+# is_superkey:
 
-is_key:
+# is_key:
 
-is_relvar_in_bcnf:
+# is_relvar_in_bcnf:
 
-is_relvar_in_4nf:
+# is_relvar_in_4nf:
