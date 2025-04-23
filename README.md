@@ -12,6 +12,9 @@
   3. Se permiten conjuntos vacíos tanto para determinante como dependiente
 
   #### *Ejemplos:*
+  ```
+
+  ```
   * Caso 1: {A,B}->{B}     - Trivial porque B está en {A,B}, regresa True
   * Caso 2: {A,B,C}->{A,B} - Trivial porque A y B están en {A,B,C}, regresa True
   * Caso 3: {A,B}->{C}     - No trivial porque C no está en {A,B}, regresa False
