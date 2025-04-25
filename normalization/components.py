@@ -78,13 +78,13 @@ class FunctionalDependency(Dependency):
     _SEPARATOR = "->"
 
     def is_trivial(self) -> bool:
+        # TODO: Actividad 1
         """
-        Determines if the functional dependency is trivial.
-        A functional dependency X -> Y is trivial if Y ⊆ X (Y is a subset of X).
+        Determina si una dependencia funcional es trivial.
+        Una dependencia funcional X -> Y es trivial si Y ⊆ X (Y es un subconjunto de X).
 
-       
-        Returns:
-            bool: True if the dependency is trivial, False otherwise.
+        Regresa:
+            bool: True si la dependencia es trivial, False en caso contrario.
         """
         return self.dependant.issubset(self.determinant)
 
@@ -95,21 +95,21 @@ class MultivaluedDependency(Dependency):
     _SEPARATOR = "->->"
 
     def is_trivial(self, heading: set[Attribute]) -> bool:
+        # TODO: Actividad 2
         """
-        Determines if the multivalued dependency is trivial.
-        A multivalued dependency X ->-> Y is trivial if either:
-        1. Y ⊆ X (Y is a subset of X), or
-        2. Y contains all remaining attributes not in X (Y = R - X, where R is the heading)
+        Determina si una dependencia multivaluada es trivial.
+        Una dependencia multivaluada X ->-> Y es trivial si pasa alguno de los siguientes casos:
+            1. Y ⊆ X (Y es un subconjunto de X)
+            2. Y contiene todos los atributos restantes no en X (Y = R - X, donde R es el heading)
 
-
-        Returns:
-            bool: True if the dependency is trivial, False otherwise.
+        Regresa:
+            bool: True si la dependencia es trivial, False en caso contrario.
         """
-        # Case 1: Y is a subset of X
+        # Caso 1: Y ⊆ X
         if self.dependant.issubset(self.determinant):
             return True
             
-        # Case 2: X ∪ Y = R (heading)
+        # Caso 2: X ∪ Y = R (heading)
         remaining_attributes = heading - self.determinant
         return self.dependant == remaining_attributes
 
