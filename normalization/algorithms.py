@@ -84,6 +84,7 @@ def is_relvar_in_4nf(relvar: Relvar):
     """
     # checamos que el relvar este en FNBC
     if not is_relvar_in_bcnf(relvar):
+        print("no cumple")
         return False
 
     # checamos cada una de las dependencias multivaluadas
